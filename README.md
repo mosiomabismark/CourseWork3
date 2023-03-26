@@ -1,4 +1,4 @@
-# itlessons
+# webstore
 
 ## Project setup
 ```
