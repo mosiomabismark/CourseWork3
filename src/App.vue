@@ -98,6 +98,8 @@
         <Checkout
           :cartItems="cartItems"
           @deleteCartItem="deleteCartItem"
+          :fullName.sync="fullName"
+          :phoneNumber.sync="phoneNumber"
         />
 
     </section>
