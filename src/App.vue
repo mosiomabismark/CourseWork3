@@ -79,7 +79,10 @@
                         </div>
                     </div>
 
-                    <Lesson :lessons="(!searchedItems.length ? sortLessons : searchedItems)"/>
+                    <Lesson 
+                      :lessons="(!searchedItems.length ? sortLessons : searchedItems)" 
+                      @addItemToCart="addToCart"
+                    />
                      
                 </div>
             </div>
