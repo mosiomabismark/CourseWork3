@@ -41,6 +41,9 @@
     </section>
     <!-- Hero Section End -->
     <!-- Product Section Begin -->
+
+
+
     <section class="product spad" v-if="showLesson">
         <div class="container">
             <div class="row">
@@ -76,31 +79,8 @@
                         </div>
                     </div>
 
-                    <div class="row">
-                        <div class="col-lg-4 col-md-6 col-sm-6" v-for="lesson in  !searchedItems.length ? sortLessons : searchedItems" :key="lesson.id">
-                            <div class="product__item">
-                                <div class="product__item__pic set-bg">
-                                    <img v-bind:src="lesson.image">
-                                    <ul class="product__item__pic__hover">
-                                        <li>
-                                            <button v-on:click="addToCart(lesson)" v-if="canAddToCart(lesson)">
-                                                Add Item To Cart
-                                                <i class="fa fa-shopping-cart"></i>
-                                            </button>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="product__item__text">
-                                    <h6>{{lesson.subject}}</h6>
-                                    <h6>{{lesson.location}}</h6>
-                                    <h6>${{lesson.price}}</h6>
-                                    <h6>{{lesson.stock - cartCount(lesson.subjectId)}} left</h6>
-                                    
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                        
+                    <Lesson :lessons="(!searchedItems.length ? sortLessons : searchedItems)"/>
+                     
                 </div>
             </div>
         </div>
@@ -180,12 +160,12 @@
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Lesson from './components/Lesson.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Lesson
   },
   data(){
     return {
