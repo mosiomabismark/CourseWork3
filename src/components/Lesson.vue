@@ -6,7 +6,7 @@
                   <img v-bind:src="lesson.image">
                   <ul class="product__item__pic__hover">
                       <li>
-                          <button v-on:click="addToCart(lesson)">
+                          <button v-on:click="addToCart(lesson)" v-if="canAddToCart(lesson)">
                               Add Item To Cart
                               <i class="fa fa-shopping-cart"></i>
                           </button>
@@ -23,7 +23,10 @@
 <script>
 export default {
   name: 'Lesson',
-  props: ["lessons"],
+  props: [
+    "lessons",
+    "canAddToCart"
+  ],
   methods: {
     addToCart(lesson){
       this.$emit("addItemToCart", lesson);

@@ -82,6 +82,7 @@
                     <Lesson 
                       :lessons="(!searchedItems.length ? sortLessons : searchedItems)" 
                       @addItemToCart="addToCart"
+                      :canAddToCart="canAddToCart"
                     />
                      
                 </div>
