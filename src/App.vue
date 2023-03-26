@@ -100,6 +100,8 @@
           @deleteCartItem="deleteCartItem"
           :fullName.sync="fullName"
           :phoneNumber.sync="phoneNumber"
+          :checkoutErrorsExist="checkoutErrorsExist"
+          @submitCheckout="submitCheckout"
         />
 
     </section>

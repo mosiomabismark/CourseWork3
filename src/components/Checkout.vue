@@ -57,9 +57,7 @@
                                         </div>
                                     </div>
                                 </div>
-                              <!--
                                 <button class="primary-btn w-100" v-bind:disabled="!checkoutErrorsExist(errors.first('fullName'), errors.first('phoneNumber'))" v-on:click="submitCheckout">PROCEED TO CHECKOUT</button>
-                              -->
                               </form>
                         </div>
                     </div>
@@ -74,11 +72,15 @@ export default {
   props: [
     "cartItems",
     "fullName",
-    "phoneNumber"
+    "phoneNumber",
+    "checkoutErrorsExist"
   ],
   methods: {
     deleteCartItem(lesson){
       this.$emit("deleteCartItem", lesson);
+    },
+    submitCheckout(){
+      this.$emit("submitCheckout");
     }
   }
 }
