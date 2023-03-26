@@ -94,70 +94,11 @@
     
     <!-- Shoping Cart Section Begin -->
     <section class="shoping-cart spad" v-else>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="shoping__cart__table">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th class="shoping__product">Products</th>
-                                    <th>Price</th>
-                                    <th>Remove</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr v-for="lesson in cartItems" :key="lesson.id">
-                                    <td class="shoping__cart__item">
-                                        <img v-bind:src="lesson.image" alt="">
-                                        <h5>{{lesson.subject}}</h5>
-                                    </td>
-                                    <td class="shoping__cart__price">
-                                        ${{lesson.price}}
-                                    </td>
-                                    <td class="">
-                                        <button v-on:click="deleteCartItem(lesson)">
-                                            <span class="icon_close"></span>
-                                        </button>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-12">
-                </div>
-                <div class="col-lg-6">
-                    <div class="shoping__continue">
-                        <div class="shoping__discount">
-                            <h5>Billing Details</h5>
-                            <form action="#">
-                                <div class="alert alert-light text-danger" role="alert">
-                                    {{ errors.first("fullName") || errors.first("phoneNumber") }}
-                                </div>
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <div class="checkout__input">
-                                            <p>Full Name<span>*</span></p>
-                                            <input type="text" name="fullName" v-model="fullName" v-validate="'required|alpha_spaces'" required>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="checkout__input">
-                                            <p>Phone<span>*</span></p>
-                                            <input type="text" name="phoneNumber" v-model="phoneNumber" v-validate="'required|numeric'" required>
-                                        </div>
-                                    </div>
-                                </div>
-                                <button class="primary-btn w-100" v-bind:disabled="!checkoutErrorsExist(errors.first('fullName'), errors.first('phoneNumber'))" v-on:click="submitCheckout">PROCEED TO CHECKOUT</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+
+        <Checkout
+          :cartItems="cartItems"
+        />
+
     </section>
     <!-- Shoping Cart Section End -->
 
@@ -166,11 +107,14 @@
 
 <script>
 import Lesson from './components/Lesson.vue'
+import Checkout from './components/Checkout.vue'
+
 
 export default {
   name: 'App',
   components: {
-    Lesson
+    Lesson,
+    Checkout
   },
   data(){
     return {
