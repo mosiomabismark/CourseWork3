@@ -21,11 +21,9 @@
                                         ${{lesson.price}}
                                     </td>
                                     <td class="">
-                                      <!--
                                         <button v-on:click="deleteCartItem(lesson)">
                                             <span class="icon_close"></span>
                                         </button>
-                                      -->
                                     </td>
                                 </tr>
                             </tbody>
@@ -44,8 +42,8 @@ export default {
     "cartItems"
   ],
   methods: {
-    addToCart(lesson){
-      this.$emit("addItemToCart", lesson);
+    deleteCartItem(lesson){
+      this.$emit("deleteCartItem", lesson);
     }
   }
 }

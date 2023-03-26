@@ -97,6 +97,7 @@
 
         <Checkout
           :cartItems="cartItems"
+          @deleteCartItem="deleteCartItem"
         />
 
     </section>
