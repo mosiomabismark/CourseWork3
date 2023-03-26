@@ -83,6 +83,7 @@
                       :lessons="(!searchedItems.length ? sortLessons : searchedItems)" 
                       @addItemToCart="addToCart"
                       :canAddToCart="canAddToCart"
+                      :cartCount="cartCount"
                     />
                      
                 </div>

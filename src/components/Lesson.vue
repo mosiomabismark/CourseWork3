@@ -13,6 +13,12 @@
                       </li>
                   </ul>
               </div>
+              <div class="product__item__text">
+                  <h6>{{lesson.subject}}</h6>
+                  <h6>{{lesson.location}}</h6>
+                  <h6>${{lesson.price}}</h6>
+                  <h6>{{lesson.stock - cartCount(lesson.subjectId)}} left</h6>
+              </div>
           </div>
       </div>
   
@@ -25,7 +31,8 @@ export default {
   name: 'Lesson',
   props: [
     "lessons",
-    "canAddToCart"
+    "canAddToCart",
+    "cartCount"
   ],
   methods: {
     addToCart(lesson){
